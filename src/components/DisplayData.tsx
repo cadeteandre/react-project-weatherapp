@@ -1,4 +1,5 @@
 import { IWeather } from "../interfaces/IWeather";
+import "./DisplayData.css";
 
 interface IDisplayDataProps {
     weatherData: IWeather
