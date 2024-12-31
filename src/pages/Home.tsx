@@ -8,9 +8,10 @@ const Home = () => {
 
     const [weatherData, setWeatherData] = useState<IWeather | null>(null);
     const [input, setInput] = useState<string>('');
+    const [backgroundHome, setBackgroundHome] = useState<string>('sunny');
 
     return (  
-        <section className="home">
+        <section className={`home ${backgroundHome}`}>
             <div className="location__buttons">
                 <button onClick={() => getWeatherData(setWeatherData, 'Hamburg')}>
                     Hamburg
@@ -31,8 +32,15 @@ const Home = () => {
                     Search
                 </button>
             </div>
-                {!weatherData ? '' : (
-                    <DisplayData weatherData={weatherData} />
+                {!weatherData ? (
+                    <div className="skeleton">
+                        <div className="skeleton-line"></div>
+                        <div className="skeleton-line"></div>
+                        <div className="skeleton-line"></div>
+                        <div className="skeleton-line"></div>
+                    </div>
+                ) : (
+                    <DisplayData weatherData={weatherData} setBackgroundHome={setBackgroundHome} />
                 )}
         </section>
     );

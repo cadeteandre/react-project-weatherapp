@@ -1,13 +1,32 @@
 .home {
     text-align: center;
     margin-top: 30px;
-    background: url(/public/images/background-img.jpg) no-repeat center center fixed;
-    background-size: cover;
     min-height: 100vh;
     width: 100%;
     max-width: 1240px;
     margin: 0;
     padding-top: 40px;
+}
+
+/* home weather background */
+.cloudy {
+    background: url(/public/images/bg-cloudy.jpg) no-repeat;
+    background-size: cover;
+}
+
+.sunny {
+    background: url(/public/images/bg-sunny.jpg) no-repeat;
+    background-position: right 30% bottom 45%;
+}
+
+.mist {
+    background: url(/public/images/bg-mist.jpg) no-repeat;
+    background-size: cover;
+}
+
+.snow {
+    background: url(/public/images/bg-snow.jpg) no-repeat;
+    background-size: cover;
 }
 
 .location__buttons button {
@@ -58,6 +77,31 @@ button {
 
 button:hover {
     transform: scale(1.05);
+}
+
+.skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px auto;
+    width: 300px;
+}
+
+.skeleton-line {
+    background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    height: 20px;
+    border-radius: 5px;
+}
+
+.skeleton-line:nth-child(1) { width: 80%; }
+.skeleton-line:nth-child(2) { width: 60%; }
+.skeleton-line:nth-child(3) { width: 90%; }
+
+@keyframes skeleton-loading {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
 }
 
 @media (max-width: 768px) {
