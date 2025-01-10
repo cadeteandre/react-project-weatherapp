@@ -27,19 +27,18 @@ You can access the live version of this project here:
 
 ## 📂 Project Structure
 
-src/
-├── components/
-│ └── WeatherDetails.tsx # Component to display detailed weather data
-├── interfaces/
-│ └── IWeatherData.ts # Interface for typing weather data
-├── pages/
-│ └── Home.tsx # Main page with city search and quick access buttons
-├── utils/
-│ └── fetches/
-│ └── getWeatherData.ts # Utility function to fetch weather data from the API
-├── styles/
-│ ├── Home.css # CSS styles for the Home component
-│ └── WeatherDetails.css # CSS styles for the WeatherDetails component
+- **src/**
+  - **components/**
+    - `WeatherDetails.tsx`: Component to display detailed weather data.
+  - **interfaces/**
+    - `IWeatherData.ts`: Interface for typing weather data.
+  - **pages/**
+    - `Home.tsx`: Main page with city search and quick access buttons.
+  - **utils/fetches/**
+    - `getWeatherData.ts`: Utility function to fetch weather data from the API.
+  - **styles/**
+    - `Home.css`: CSS styles for the Home component.
+    - `WeatherDetails.css`: CSS styles for the WeatherDetails component.
 
 ## 🎨 How It Works
 
