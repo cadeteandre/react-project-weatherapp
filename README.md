@@ -1,50 +1,48 @@
-# React + TypeScript + Vite
+# Weather App 🌦️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple weather forecast application built with **React** and **TypeScript**. It allows users to search for weather information by city and displays detailed weather data, including temperatures, wind speed, humidity, and more.
 
-Currently, two official plugins are available:
+## 📋 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Search for weather data by city name.
+- Quick access buttons for predefined cities.
+- Displays detailed weather information:
+  - Current, minimum, and maximum temperatures.
+  - Feels-like temperature.
+  - Humidity and wind speed.
+  - Sunrise and sunset times.
+- Dynamic background changes based on weather conditions (e.g., sunny, cloudy, misty).
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: Frontend library for building the user interface.
+- **TypeScript**: Strongly-typed language for enhanced developer experience.
+- **CSS**: Styling for the components.
+- **OpenWeather API**: Provides real-time weather data.
 
-- Configure the top-level `parserOptions` property like this:
+## 📂 Project Structure
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+src/
+├── components/
+│ ├── WeatherDetails.tsx # Component to display detailed weather data
+├── interfaces/
+│ ├── IWeatherData.ts # Interface for typing weather data
+├── pages/
+│ ├── Home.tsx # Main page with city search and quick access buttons
+├── utils/
+│ ├── fetches/
+│ ├── getWeatherData.ts # Utility function to fetch weather data from the API
+├── styles/
+│ ├── Home.css # CSS styles for the Home component
+│ ├── WeatherDetails.css # CSS styles for the WeatherDetails component
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🎨 How It Works
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+    1.	City Search: Enter a city name in the search bar and click “Search” to fetch its weather data.
+    2.	Quick Access: Use the predefined buttons to view weather for specific cities.
+    3.	Dynamic UI: Background updates automatically based on the current weather conditions.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## 🌟 Acknowledgements
+
+    •	OpenWeather API for weather data.
+    •	React and TypeScript communities for extensive documentation and support.

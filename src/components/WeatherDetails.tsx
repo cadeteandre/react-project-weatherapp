@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { IWeather } from "../interfaces/IWeather";
-import "./DisplayData.css";
+import { IWeatherData } from "../interfaces/IWeatherData";
+import "./WeatherDetails.css";
 
-interface IDisplayDataProps {
-    weatherData: IWeather,
+interface Props {
+    weatherData: IWeatherData,
     setBackgroundHome: React.Dispatch<React.SetStateAction<string>>
 }
 
-const DisplayData: React.FC<IDisplayDataProps> = ({ weatherData, setBackgroundHome }) => {
+const WeatherDetails: React.FC<Props> = ({ weatherData, setBackgroundHome }) => {
 
     useEffect(() => {
         switch(true) {
@@ -23,13 +23,20 @@ const DisplayData: React.FC<IDisplayDataProps> = ({ weatherData, setBackgroundHo
             case (weatherData.weather[0].main === 'Mist'):
                 setBackgroundHome('mist');
                 break;
+            case (weatherData.weather[0].main === 'Snow'):
+                setBackgroundHome('snow');
+                break;
+            default: setBackgroundHome('sunny');
+            break;
         }
     }, [weatherData, setBackgroundHome])
 
-    const sunriseDate = new Date(weatherData.sys.sunrise * 1000);
-    const sunsetDate = new Date(weatherData.sys.sunset * 1000);
+    const sunriseDate = new Date(weatherData?.sys.sunrise * 1000);
+    const sunsetDate = new Date(weatherData?.sys.sunset * 1000);
     const sunriseTime = sunriseDate.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
     const sunsetTime = sunsetDate.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' });
+
+    const kelvinToCelsius = (temp: number): number => Math.round(temp - 273.15);
 
     return (  
         <div key={weatherData.id} className="show__results">
@@ -41,10 +48,10 @@ const DisplayData: React.FC<IDisplayDataProps> = ({ weatherData, setBackgroundHo
             </div>
 
             <div className="weather__temperatures">
-                <p>Current: <span>{Math.round(weatherData.main.temp - 273.15)} °C</span></p>
-                <p>Feels like: <span>{Math.round(weatherData.main.feels_like - 273.15)} °C</span></p>
-                <p>Max: <span>{Math.round(weatherData.main.temp_max - 273.15)} °C</span></p>
-                <p>Min: <span>{Math.round(weatherData.main.temp_min - 273.15)} °C</span></p>
+                <p>Current: <span>{kelvinToCelsius(weatherData.main.temp)} °C</span></p>
+                <p>Feels like: <span>{kelvinToCelsius(weatherData.main.feels_like)} °C</span></p>
+                <p>Max: <span>{kelvinToCelsius(weatherData.main.temp_max)} °C</span></p>
+                <p>Min: <span>{kelvinToCelsius(weatherData.main.temp_min)} °C</span></p>
             </div>
 
             <div className="weather__details">
@@ -57,4 +64,4 @@ const DisplayData: React.FC<IDisplayDataProps> = ({ weatherData, setBackgroundHo
     );
 }
 
-export default DisplayData;
+export default WeatherDetails;

@@ -1,6 +1,6 @@
-export interface IWeather {
+export interface IWeatherData {
     coord:      Coord;
-    weather:    Weather[];
+    weather:    IWeather[];
     base:       string;
     main:       Main;
     visibility: number;
@@ -47,7 +47,7 @@ export interface Sys {
     sunset:  number;
 }
 
-export interface Weather {
+export interface IWeather {
     id:          number;
     main:        string;
     description: string;
