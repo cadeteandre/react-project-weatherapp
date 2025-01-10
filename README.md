@@ -2,6 +2,11 @@
 
 This is a simple weather forecast application built with **React** and **TypeScript**. It allows users to search for weather information by city and displays detailed weather data, including temperatures, wind speed, humidity, and more.
 
+## 🌐 Live Demo
+
+You can access the live version of this project here:  
+[Weather App on Netlify](https://kdtweatherapp.netlify.app/)
+
 ## 📋 Features
 
 - Search for weather data by city name.
@@ -38,11 +43,11 @@ src/
 
 ## 🎨 How It Works
 
-    1.	City Search: Enter a city name in the search bar and click “Search” to fetch its weather data.
-    2.	Quick Access: Use the predefined buttons to view weather for specific cities.
-    3.	Dynamic UI: Background updates automatically based on the current weather conditions.
+- **City Search**: Enter a city name in the search bar and click “Search” to fetch its weather data.
+- **Quick Access**: Use the predefined buttons to view weather for specific cities.
+- **Dynamic UI**: Background updates automatically based on the current weather conditions.
 
 ## 🌟 Acknowledgements
 
-    •	OpenWeather API for weather data.
-    •	React and TypeScript communities for extensive documentation and support.
+- OpenWeather API for weather data.
+- React and TypeScript communities for extensive documentation and support.
